@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="My 6th webpage">
+    <meta name="keywordss" content="Hello, World! website">
+    <meta name="author" content="Jonathan Pasco-Arnone">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webpage</title>
+  </head>
+  <body>
+    <h2>Please enter 2 numbers to be multiplied by using addition</h2>
+    <input id="first-number-id">
+    <label> X </label>
+    <input id="second-number-id"><br><br>
+    <button id="multiply">Multiply</button>
+    <h3 id="result"></h3>
+    <script>
+    let firstNumber = 0; //x
+    let secondNumber = 0; //y
+    let secondNumberCopy = 0; //y Copy
+    let additionNumber = 0; //z
+    function multiplyByAddition() {
+      firstNumber = document.getElementById("first-number-id").value;
+      secondNumber = document.getElementById("second-number-id").value;
+      additionNumber = firstNumber;
+      secondNumberCopy = secondNumber;
+      secondNumber = Math.abs(secondNumber);
+      secondNumber = (secondNumber - 1);
+      for (;secondNumber > 0; secondNumber--) {
+        firstNumber = (+firstNumber + +additionNumber);
+      }
+      if (secondNumberCopy < 0 && additionNumber < 0) {
+        firstNumber = Math.abs(firstNumber);
+      } else if (secondNumberCopy < 0 && additionNumber > 0) {
+        firstNumber = (firstNumber * -1);
+      }
+      document.getElementById("result").innerHTML = (additionNumber + " x " + secondNumberCopy + " = " + firstNumber);
+    }
+      document.getElementById("multiply").addEventListener("click",multiplyByAddition);
+    </script>
+  </body>
+</html>
